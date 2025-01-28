@@ -366,7 +366,7 @@ if __name__ == "__main__":
         lr = params['lr']
         weight_decay = params['weight_decay']
     else:
-        num_epochs = 200
+        num_epochs = 2
         lr = 0.01
         weight_decay = 5e-4
     
