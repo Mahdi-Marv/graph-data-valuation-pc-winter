@@ -136,7 +136,7 @@ group_trunc_ratio_hop_1 = 0.5
 group_trunc_ratio_hop_2 = 0.7
 ratio = 3
 directory = 'value/'
-pattern = re.compile(r'^Citeseer_(\d+)_1_0_0\.5_0\.7_pc_value\.pkl$')
+pattern = re.compile(r'^Citeseer_(\d+)_10_0_0\.5_0\.7_pc_value\.pkl$')
 
 # Find matching files for PC-Winter results
 matching_files = []
@@ -189,7 +189,7 @@ unlabeled_win_value = unlabled_win_df['value'].values
 # Load and preprocess the Citeseer dataset
 dataset = Planetoid(root='dataset/', name='Citeseer', transform=T.NormalizeFeatures())
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-print('device')
+# print(device)
 data = dataset[0].to(device)
 
 train_mask = data.train_mask

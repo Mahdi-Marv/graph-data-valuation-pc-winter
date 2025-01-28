@@ -337,7 +337,7 @@ def parse_args():
     parser.add_argument('--dataset', default='Cora', help='Input dataset.')
     parser.add_argument('--num_hops', type=int, default=2, help='Number of hops.')
     parser.add_argument('--seed', type=int, default=0, help='Random seed for permutation.')
-    parser.add_argument('--num_perm', type=int, default=1, help='Number of permutations.')
+    parser.add_argument('--num_perm', type=int, default=10, help='Number of permutations.')
     parser.add_argument('--label_trunc_ratio', type=float, default=0, help='Label trunc ratio')
     parser.add_argument('--group_trunc_ratio_hop_1', type=float, default=0.5, help='Hop 1 Group trunc ratio')
     parser.add_argument('--group_trunc_ratio_hop_2', type=float, default=0.7, help='Hop 2 Group trunc ratio.')
@@ -366,7 +366,7 @@ if __name__ == "__main__":
         lr = params['lr']
         weight_decay = params['weight_decay']
     else:
-        num_epochs = 2
+        num_epochs = 200
         lr = 0.01
         weight_decay = 5e-4
     
