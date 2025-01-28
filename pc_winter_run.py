@@ -408,6 +408,8 @@ if __name__ == "__main__":
     X_val_propogated = propagate_features(val_edge_index , data.x)
     test_edge_index =  get_subgraph_data(data.edge_index, test_mask)
     X_test_propogated = propagate_features(test_edge_index, data.x)
+
+    print('validation and test sets prepared')
     
     val_features = X_val_propogated[val_mask]
     val_labels = data.y[val_mask]
@@ -421,6 +423,8 @@ if __name__ == "__main__":
             inductive_edge_index.append([src, tgt])
     inductive_edge_index = torch.tensor(inductive_edge_index).t().contiguous()
     X_ind_propogated = propagate_features(inductive_edge_index, data.x)
+
+    print('inductive edge index created')
     
     if verbose:
         original_edge_count = data.edge_index.size(1)  
@@ -433,6 +437,8 @@ if __name__ == "__main__":
     labeled_node_list = list(train_idx)
     labeled_to_player_map, sample_value_dict, sample_counter_dict = \
             generate_maps( list(train_idx), num_hops, inductive_edge_index)
+
+    print('storage dataset prepared')
     
     #Store the performance of different seed, permutation index, added new contribution path and accrued performace
     perf_dict = {
@@ -442,6 +448,7 @@ if __name__ == "__main__":
     
     total_time = 0
     # Main loop for PC-Winter algorithm with online Pre-order traversal
+    print('permutes started')
     for i in range(num_perm):
         iteration_start_time = time.time()
         np.random.shuffle(labeled_node_list) # Randomize order of labeled nodes
