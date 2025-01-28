@@ -132,7 +132,7 @@ group_trunc_ratio_hop_1 = 0.5
 group_trunc_ratio_hop_2 = 0.7
 ratio = 3
 directory = 'value/'
-pattern = re.compile(r'^Cora_(\d+)_10_0_0\.5_0\.7_pc_value\.pkl$')
+pattern = re.compile(r'^Cora_(\d+)_1_0_0\.5_0\.7_pc_value\.pkl$')
 
 # Find matching files for PC-Winter results
 matching_files = []
